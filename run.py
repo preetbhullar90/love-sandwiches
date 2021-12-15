@@ -31,7 +31,7 @@ def get_sales_data():
         if validate_data(sales_data):
             print('data is valid!')
             break
-    return sales_data    
+    return sales_data
 
 def validate_data(values):
     """
@@ -46,34 +46,34 @@ def validate_data(values):
                 f"Exactly 6 values required, you provide {len(values)}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n") 
+        print(f"Invalid data: {e}, please try again.\n")
         return False
-    return True 
+    return True
 
 """def update_sales_worksheet(data):
-    
-   
+
+
     print('Updating sales worksheet...\n')
     sales_worksheet=SHEET.worksheet("sales")
     sales_worksheet.append_row(data)
     print('Sales worksheet updated successfully.\n')
 
 def update_surplus_worksheet(data):
-    
+
     print('Updating surplus worksheet...\n')
     surplus_worksheet=SHEET.worksheet("surplus")
     surplus_worksheet.append_row(data)
-    print('Surplus worksheet updated successfully.\n') """  
+    print('Surplus worksheet updated successfully.\n') """
 
 def update_worksheet(data, worksheet):
     """
     Recieves a list of integers to be inserted into a worksheet
     Update the relevent worksheet with the data provided
-    """    
-    print(f'Updateing {worksheet} worksheet...\n')  
+    """
+    print(f'Updateing {worksheet} worksheet...\n')
     worksheet_to_update=SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
-    print(f'{worksheet} updated successfully\n') 
+    print(f'{worksheet} updated successfully\n')
 
 def calculate_surplus_data(sales_row):
     """
@@ -82,16 +82,15 @@ def calculate_surplus_data(sales_row):
     The surplus is defined as the sales figure subtracted from the stock:
     - Positive surplis indicates waste
     - Nagitive surplus indicates extra made when stock was sold out.
-    """    
+    """
     print("calculating surplus data...\n")
     stock=SHEET.worksheet("stock").get_all_values()
     stock_row=stock[-1]
-    
     surplus_data=[]
     for stock, sales in zip(stock_row,sales_row):
         surplus=int(stock) - sales
         surplus_data.append(surplus)
-    return surplus_data   
+    return surplus_data
 
 
 def get_last_5_entries_sales():
@@ -105,7 +104,7 @@ def get_last_5_entries_sales():
     for ind in range(1, 7):
         column=sales.col_values(ind)
         columns.append(column[-5:])
-    return columns    
+    return columns
 
 
 def calculate_stock_data(data):
@@ -114,13 +113,12 @@ def calculate_stock_data(data):
     """
     print("Calculating stock data...\n")
     new_stock_data=[]
-    
     for column in data:
         int_column=[int(num) for num in column]
         average=sum(int_column)/ len(int_column)
         stock_num=average * 1.1
         new_stock_data.append(round(stock_num))
-    return new_stock_data    
+    return new_stock_data
 
 
 
@@ -136,6 +134,6 @@ def main():
     stock_data=calculate_stock_data(sales_columns)
     update_worksheet(stock_data,"stock")
 
-print("Welcome to love sandwiches Data Automation")    
-main()    
+print("Welcome to love sandwiches Data Automation")
+main()
 
