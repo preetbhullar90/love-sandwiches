@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from colorama import Fore, Style
+from colorama import init, Fore, Style
+init()
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
