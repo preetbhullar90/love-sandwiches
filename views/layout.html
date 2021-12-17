@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 
 <head>
     <meta charset="UTF-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    @{import('head', 'meta')}
-    <link rel='icon' sizes="any"
+
+    <link rel='stylesheet'
     href="https://media.kidadl.com/medium_sandwich_stencil_0bbd374e71.png" />
-    <style>
+    <title>Love sandwiches</title>
+
+
+<style>
         body {
             margin: 0px;
             text-align: center;
@@ -19,20 +24,9 @@
         body {
 
             height: 100vh;
-position: relative;
-left: 50%;
-transform: translate(-50%,0);
-        }
-
-        #background {
-
-        }
-
-        svg {
-            height: 100%;
             position: relative;
             left: 50%;
-            transform: translate(-50%, 0);
+            transform: translate(-50%,0);
         }
 
         /**
@@ -189,16 +183,12 @@ transform: translate(-50%,0);
             margin: 10px;
             border-radius: 8px;
         }
-    </style>
+</style>
 </head>
+
 <body>
 
-<div>@{body}</div>
-
-<div id="background">
-       
-
-</div>
+@{body}
 </body>
 
 </html>
