@@ -22,12 +22,12 @@
 
         }
 
-        body {
-
-            /*height: 100vh;
-            position: relative;
-            left: 50%;
-            transform: translate(-50%,0);*/
+        #container {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
         }
 
         #background {
@@ -205,7 +205,7 @@
 
 <body>
 
-<div>@{body}</div>
+<div id="container">@{body}</div>
     <div id="background">
 
     <svg version="1.1" viewBox="0.0 0.0 960.0 720.0" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
